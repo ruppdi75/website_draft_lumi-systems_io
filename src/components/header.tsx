@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
+import { Menu, ShoppingCart, Bot } from 'lucide-react';
 import { Logo } from './logo';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
+import { cn } from "@/lib/utils";
+
 
 const navLinks = [
   { href: '#vorteile', label: 'Vorteile' },
@@ -37,9 +39,20 @@ export function Header() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button asChild className="hidden sm:inline-flex">
-            <Link href="#produkte">Jetzt Kaufen</Link>
-          </Button>
+          <div className="hidden sm:flex items-center gap-2">
+              <Button asChild className="bg-royal-blue hover:bg-royal-blue/90 text-white">
+                  <Link href="#">
+                      <ShoppingCart className="mr-2 h-4 w-4" />
+                      Online Shop
+                  </Link>
+              </Button>
+              <Button asChild className="bg-royal-green hover:bg-royal-green/90 text-white">
+                  <Link href="#">
+                      <Bot className="mr-2 h-4 w-4" />
+                      AI Support Assistent
+                  </Link>
+              </Button>
+          </div>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -63,9 +76,20 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
-                <Button asChild className="mt-4">
-                  <Link href="#produkte" onClick={() => setIsMenuOpen(false)}>Jetzt Kaufen</Link>
-                </Button>
+                 <div className="flex flex-col gap-2 mt-4">
+                    <Button asChild className="bg-royal-blue hover:bg-royal-blue/90 text-white" onClick={() => setIsMenuOpen(false)}>
+                        <Link href="#">
+                            <ShoppingCart className="mr-2 h-4 w-4" />
+                            Online Shop
+                        </Link>
+                    </Button>
+                    <Button asChild className="bg-royal-green hover:bg-royal-green/90 text-white" onClick={() => setIsMenuOpen(false)}>
+                        <Link href="#">
+                            <Bot className="mr-2 h-4 w-4" />
+                            AI Support Assistent
+                        </Link>
+                    </Button>
+                </div>
               </nav>
             </SheetContent>
           </Sheet>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2 } from "lucide-react";
+import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Cpu, Package, Fingerprint, Laptop } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -14,6 +14,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <BenefitsSection />
+        <NewBenefitsSection />
         <ProductsSection />
         <ComparisonSection />
         <CatSupportSection />
@@ -29,10 +30,10 @@ function HeroSection() {
     <section className="container grid lg:grid-cols-2 gap-12 items-center py-20 md:py-32">
       <div className="flex flex-col gap-6">
         <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold">
-          Lumi-Systems: Nachhaltige Notebooks mit benutzerfreundlichem Linux
+          Warum Windows, wenn's mit Linux auch geht
         </h1>
         <p className="text-xl text-muted-foreground">
-          "Warum Windows, wenn's mit Linux auch geht"
+          Entdecken Sie unsere refurbished Notebooks mit vorinstalliertem AnduinOS Linux (basierend auf Ubuntu). Die sichere, schnelle und benutzerfreundliche Alternative zu Windows – perfekt für Einsteiger und Profis.
         </p>
         <div className="flex gap-4">
           <Button size="lg" asChild>
@@ -59,24 +60,34 @@ function HeroSection() {
 
 const benefits = [
   {
-    icon: Recycle,
-    title: "Nachhaltigkeit",
-    description: "Hochwertige Business-Notebooks werden geprüft, gereinigt und aufgerüstet. Das schont die Umwelt und bietet Top-Leistung zum fairen Preis.",
+    icon: Fingerprint,
+    title: "Sicher & Privat",
+    description: "Ihr Lumi-Notebook schützt Ihre Daten. Kein Tracking, keine Datensammlung. Ihre Privatsphäre steht an erster Stelle, garantiert durch die Transparenz von Open-Source-Software.",
   },
   {
     icon: Users,
-    title: "Benutzerzentrierter Umstieg",
-    description: "Mit AnduinOS oder Ubuntu bieten wir eine intuitive Oberfläche, die Windows-Nutzern den Übergang so einfach wie möglich macht.",
+    title: "Intuitiv & Vertraut",
+    description: "Fühlen Sie sich sofort zuhause. Dank der vertrauten Oberfläche von LumiOS gelingt der Umstieg von Windows mühelos und ohne lange Einarbeitung. Ihr neues Notebook ist sofort produktiv.",
   },
   {
-    icon: ShieldCheck,
-    title: "Sicherheit & Privatsphäre",
-    description: "Kein Tracking, keine Datensammlung. Linux ist von Natur aus sicherer und Flatpak-Apps maximieren die Systemstabilität.",
+    icon: Laptop,
+    title: "Sofort Einsatzbereit",
+    description: "Auspacken und loslegen. Ihr Lumi-Notebook kommt mit allen wichtigen, vorinstallierten Anwendungen. Sparen Sie sich die komplizierte Einrichtung und starten Sie sofort durch.",
+  },
+  {
+    icon: Package,
+    title: "Riesige App-Auswahl",
+    description: "Installieren Sie Apps einfach und sicher. Greifen Sie auf Tausende von Anwendungen zu. Dank moderner Flatpak-Technologie bleibt Ihr System dabei stets stabil und geschützt.",
+  },
+  {
+    icon: Recycle,
+    title: "Nachhaltig & Leistungsstark",
+    description: "Nachhaltigkeit trifft auf Performance. Wir geben hochwertiger Business-Hardware ein zweites Leben. Das reduziert Elektroschrott und liefert Ihnen zugleich zuverlässige Leistung für all Ihre Aufgaben.",
   },
   {
     icon: Code2,
-    title: "Volle Kontrolle",
-    description: "Als Open-Source-System bietet Linux volle Transparenz. Updates werden nur dann installiert, wenn Sie es wünschen.",
+    title: "Volle Linux-Kompatibilität",
+    description: "Entfesseln Sie das Potenzial von Linux. Unsere Notebooks bieten volle Kompatibilität mit dem riesigen Software-Ökosystem von Ubuntu – perfekt für Entwickler, Profis und alle, die mehr wollen.",
   },
 ];
 
@@ -85,12 +96,12 @@ function BenefitsSection() {
     <section id="vorteile" className="py-20 md:py-28 bg-white dark:bg-card">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Eine sichere & kosteneffiziente Alternative</h2>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Warum ein Notebook von Lumi-Systems wählen?</h2>
           <p className="text-lg text-muted-foreground mt-4">
-            Wir kombinieren Nachhaltigkeit durch wiederverwendete Hardware mit einem nutzerzentrierten Software-Erlebnis.
+            Unsere Notebooks sind mit LumiOS ausgestattet, einem modernen und sicheren Betriebssystem auf Linux-Basis. Erleben Sie einen nahtlosen Übergang von Windows mit vertrauten Anwendungen, intuitiven Workflows und einem starken Fokus auf Ihre Privatsphäre.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <Card key={index} className="text-center border-0 shadow-none bg-transparent">
               <CardHeader className="items-center">
@@ -108,6 +119,38 @@ function BenefitsSection() {
       </div>
     </section>
   );
+}
+
+function NewBenefitsSection() {
+    const newBenefits = [
+        { title: "Stabil & Sicher", description: "Notebooks von Lumi-Systems basieren auf einem robusten Linux-Kern und bieten Ihnen eine sichere Umgebung ohne Viren und ständige Updates." },
+        { title: "Benutzerfreundlich", description: "Eine intuitive Oberfläche, die speziell für Windows-Umsteiger entwickelt wurde. Fühlen Sie sich sofort zu Hause." },
+        { title: "Sofort Einsatzbereit", description: "Alle wichtigen Anwendungen für Büro, Kreativität und das Web sind bereits vorinstalliert. Einfach einschalten und loslegen." },
+    ]
+  return (
+    <section className="py-20 md:py-28">
+      <div className="container">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Ihre Vorteile mit Notebooks von Lumi-Systems</h2>
+          <p className="text-lg text-muted-foreground mt-4">
+            Notebooks von Lumi-Systems wurden entwickelt, um Ihnen den Umstieg so einfach wie möglich zu machen und gleichzeitig die Stabilität und Sicherheit von Linux zu bieten.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+            {newBenefits.map(benefit => (
+                 <Card key={benefit.title}>
+                    <CardHeader>
+                        <CardTitle>{benefit.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground">{benefit.description}</p>
+                    </CardContent>
+                 </Card>
+            ))}
+        </div>
+      </div>
+    </section>
+  )
 }
 
 const products = [
@@ -140,7 +183,7 @@ const products = [
 
 function ProductsSection() {
   return (
-    <section id="produkte" className="py-20 md:py-28">
+    <section id="produkte" className="py-20 md:py-28 bg-white dark:bg-card">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">Unsere Produkte</h2>
@@ -186,10 +229,10 @@ function ComparisonSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white dark:bg-card">
+    <section className="py-20 md:py-28">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Ein direkter Vergleich</h2>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Eine sichere & kosteneffiziente Alternative</h2>
           <p className="text-lg text-muted-foreground mt-4">
             Sehen Sie, warum Lumi-Systems die bessere Wahl für modernes, sicheres und nachhaltiges Computing ist.
           </p>
@@ -231,7 +274,7 @@ function ComparisonSection() {
 
 function CatSupportSection() {
   return (
-    <section id="versprechen" className="py-20 md:py-28">
+    <section id="versprechen" className="py-20 md:py-28 bg-white dark:bg-card">
       <div className="container grid lg:grid-cols-2 gap-12 items-center">
         <div className="rounded-xl overflow-hidden shadow-2xl">
           <Image
