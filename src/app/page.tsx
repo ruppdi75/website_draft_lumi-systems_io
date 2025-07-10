@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Cpu, Package, Fingerprint, Laptop } from "lucide-react";
+import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Cpu, Package, Fingerprint, Laptop, ShoppingCart, Bot } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -13,8 +13,8 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <BenefitsSection />
         <NewBenefitsSection />
+        <BenefitsSection />
         <ProductsSection />
         <ComparisonSection />
         <CatSupportSection />
@@ -36,11 +36,17 @@ function HeroSection() {
           Entdecken Sie unsere refurbished Notebooks mit vorinstalliertem AnduinOS Linux (basierend auf Ubuntu). Die sichere, schnelle und benutzerfreundliche Alternative zu Windows – perfekt für Einsteiger und Profis.
         </p>
         <div className="flex gap-4">
-          <Button size="lg" asChild>
-            <Link href="#produkte">Zu den Geräten</Link>
+          <Button size="lg" asChild className="bg-royal-blue hover:bg-royal-blue/90 text-white">
+            <Link href="#">
+              <ShoppingCart className="mr-2 h-5 w-5" />
+              Online Shop
+            </Link>
           </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link href="#vorteile">Mehr erfahren</Link>
+          <Button size="lg" asChild variant="outline" className="bg-royal-green hover:bg-royal-green/90 text-white">
+            <Link href="#">
+              <Bot className="mr-2 h-5 w-5" />
+              AI Support Assistent
+            </Link>
           </Button>
         </div>
       </div>
@@ -186,9 +192,9 @@ function ProductsSection() {
     <section id="produkte" className="py-20 md:py-28 bg-white dark:bg-card">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Unsere Produkte</h2>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Ihr nächstes Notebook: Zuverlässig & Sicher</h2>
           <p className="text-lg text-muted-foreground mt-4">
-            Klar definierte Auswahl an Notebooks für verschiedene Anforderungsprofile.
+            Jedes Notebook wird von uns sorgfältig geprüft und mit einem sicheren Linux-Betriebssystem Ihrer Wahl (AnduinOS oder Ubuntu) für Sie vorbereitet.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
@@ -213,6 +219,11 @@ function ProductsSection() {
               </CardFooter>
             </Card>
           ))}
+        </div>
+        <div className="text-center mt-12">
+            <p className="text-lg text-muted-foreground">
+                Weitere Modelle finden Sie in unserem <Link href="#" className="text-primary hover:underline">Online Shop</Link>.
+            </p>
         </div>
       </div>
     </section>
