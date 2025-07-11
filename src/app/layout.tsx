@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'Lumi-Systems: Nachhaltige Notebooks mit benutzerfreundlichem Linux',
-  description: "Warum Windows, wenn's mit Linux auch geht",
+  description: "Warum Windows, wenn's auch mit Linux geht. Entdecken Sie unsere refurbished Notebooks mit vorinstalliertem AnduinOS Linux (basierend auf Ubuntu).",
 };
 
 export default function RootLayout({
