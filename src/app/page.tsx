@@ -2,21 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Cpu, Package, Fingerprint, Laptop, ShoppingCart, Bot, Rocket, Smile, LifeBuoy, Handshake } from "lucide-react";
+import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Package, Fingerprint, Laptop, ShoppingCart, Bot, Rocket, Smile, LifeBuoy } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Logo } from "@/components/logo";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-
-
-function WindowsLogo(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M3,12.5H11V21H3V12.5M3,3H11V11.5H3V3M12,3H21V11.5H12V3M12,12.5H21V21H12V12.5Z" />
-    </svg>
-  );
-}
+import { WindowsLogo } from "@/components/windows-logo";
 
 
 export default function Home() {
@@ -463,4 +454,3 @@ function PartnersSection() {
     </section>
   );
 }
-    
