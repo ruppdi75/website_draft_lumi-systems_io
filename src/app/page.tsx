@@ -18,6 +18,7 @@ export default function Home() {
         <HeroSection />
         <NewBenefitsSection />
         <BenefitsSection />
+ <VersatilitySection />
         <ProductsSection />
         <ComparisonSection />
         <CatSupportSection />
@@ -167,71 +168,58 @@ function NewBenefitsSection() {
   )
 }
 
-const products = [
-  {
-    name: "LumiBook Air",
-    price: "€ 499,-",
-    audience: "Alltag, Büroanwendungen, Web-Nutzung",
-    specs: "Intel i5, 8GB RAM, 256GB SSD",
-    description: "Ein schlankes und leistungsstarkes Alltagsgerät.",
-    image: { src: "https://placehold.co/600x400.png", hint: "modern laptop" },
-  },
-  {
-    name: "LumiBook Pro",
-    price: "€ 799,-",
-    audience: "Professionelle Anwender, Kreative, Entwickler",
-    specs: "Intel i7, 16GB RAM, 512GB SSD",
-    description: "Maximale Leistung für anspruchsvolle Aufgaben.",
-    image: { src: "https://placehold.co/600x400.png", hint: "powerful laptop" },
-    featured: true,
-  },
-  {
-    name: "LumiBook Flex",
-    price: "€ 549,-",
-    audience: "Mobile Nutzer, die Flexibilität benötigen",
-    specs: "AMD Ryzen 5, 8GB RAM, 256GB SSD",
-    description: "Eine flexible und performante Lösung für unterwegs.",
-    image: { src: "https://placehold.co/600x400.png", hint: "convertible laptop" },
-  },
-];
+function VersatilitySection() {
+  const applicationCases = [
+    {
+      title: "Alltägliche Aufgaben",
+      cases: [
+        "E-Mails senden und empfangen (Thunderbird)",
+        "Im Internet surfen (Firefox)",
+        "Musik hören (VLC oder Rhythmbox)",
+      ],
+    },
+    {
+      title: "Arbeit & Produktivität",
+      cases: [
+        "Dokumente erstellen und bearbeiten (OnlyOffice)",
+        "Präsentationen halten (OnlyOffice)",
+        "Tabellenkalkulationen (OnlyOffice)",
+      ],
+    },
+    {
+      title: "Kreative Projekte & Mehr",
+      cases: [
+        "Fotos bearbeiten (GIMP)",
+        "Videos ansehen (VLC)",
+        "Sichere Datenspeicherung (pCloud)",
+      ],
+    },
+  ];
 
-function ProductsSection() {
   return (
-    <section id="produkte" className="py-20 md:py-28 bg-white dark:bg-card">
+    <section className="py-20 md:py-28">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Ihr nächstes Notebook: Zuverlässig & Sicher</h2>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Entdecken Sie die Vielseitigkeit Ihres neuen Notebooks</h2>
           <p className="text-lg text-muted-foreground mt-4">
-            Jedes Notebook wird von uns sorgfältig geprüft und mit einem sicheren Linux-Betriebssystem Ihrer Wahl (AnduinOS oder Ubuntu) für Sie vorbereitet.
+            Ihr Lumi-Systems Notebook mit vorinstalliertem AnduinOS ist bereit für alles, was Sie vorhaben. Ob für den Alltag, die Arbeit oder kreative Projekte – erleben Sie eine leistungsstarke und sichere Alternative zu Windows.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-          {products.map((product) => (
-            <Card key={product.name} className={`flex flex-col h-full ${product.featured ? 'border-primary shadow-lg' : ''}`}>
+        <div className="grid md:grid-cols-3 gap-8">
+          {applicationCases.map((block, index) => (
+            <Card key={index} className="flex flex-col h-full">
               <CardHeader>
-                <div className="aspect-video rounded-md overflow-hidden mb-4">
-                  <Image src={product.image.src} alt={product.name} width={600} height={400} data-ai-hint={product.image.hint} className="w-full h-full object-cover" />
-                </div>
-                <CardTitle className="font-headline">{product.name}</CardTitle>
-                <p className="text-2xl font-bold">{product.price}</p>
-                <CardDescription>{product.audience}</CardDescription>
+                <CardTitle className="font-headline">{block.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-1">
-                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                  <li>{product.specs}</li>
-                  <li>{product.description}</li>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  {block.cases.map((item, itemIndex) => (
+                    <li key={itemIndex}>{item}</li>
+                  ))}
                 </ul>
               </CardContent>
-              <CardFooter>
-                <Button className="w-full" variant={product.featured ? 'default' : 'outline'}>Jetzt Kaufen</Button>
-              </CardFooter>
             </Card>
           ))}
-        </div>
-        <div className="text-center mt-12">
-            <p className="text-lg text-muted-foreground">
-                Weitere Modelle finden Sie in unserem <Link href="#" className="text-primary hover:underline">Online Shop</Link>.
-            </p>
         </div>
       </div>
     </section>
@@ -306,6 +294,77 @@ function ComparisonSection() {
             </div>
           </div>
         </Card>
+      </div>
+    </section>
+  );
+}
+
+const products = [
+  {
+    name: "LumiBook Air",
+    price: "€ 499,-",
+    audience: "Alltag, Büroanwendungen, Web-Nutzung",
+    specs: "Intel i5, 8GB RAM, 256GB SSD",
+    description: "Ein schlankes und leistungsstarkes Alltagsgerät.",
+    image: { src: "https://placehold.co/600x400.png", hint: "modern laptop" },
+  },
+  {
+    name: "LumiBook Pro",
+    price: "€ 799,-",
+    audience: "Professionelle Anwender, Kreative, Entwickler",
+    specs: "Intel i7, 16GB RAM, 512GB SSD",
+    description: "Maximale Leistung für anspruchsvolle Aufgaben.",
+    image: { src: "https://placehold.co/600x400.png", hint: "powerful laptop" },
+    featured: true,
+  },
+  {
+    name: "LumiBook Flex",
+    price: "€ 549,-",
+    audience: "Mobile Nutzer, die Flexibilität benötigen",
+    specs: "AMD Ryzen 5, 8GB RAM, 256GB SSD",
+    description: "Eine flexible und performante Lösung für unterwegs.",
+    image: { src: "https://placehold.co/600x400.png", hint: "convertible laptop" },
+  },
+];
+
+function ProductsSection() {
+  return (
+    <section id="produkte" className="py-20 md:py-28 bg-white dark:bg-card">
+      <div className="container">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Ihr nächstes Notebook: Zuverlässig & Sicher</h2>
+          <p className="text-lg text-muted-foreground mt-4">
+            Jedes Notebook wird von uns sorgfältig geprüft und mit einem sicheren Linux-Betriebssystem Ihrer Wahl (AnduinOS oder Ubuntu) für Sie vorbereitet.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+          {products.map((product) => (
+            <Card key={product.name} className={`flex flex-col h-full ${product.featured ? 'border-primary shadow-lg' : ''}`}>
+              <CardHeader>
+                <div className="aspect-video rounded-md overflow-hidden mb-4">
+                  <Image src={product.image.src} alt={product.name} width={600} height={400} data-ai-hint={product.image.hint} className="w-full h-full object-cover" />
+                </div>
+                <CardTitle className="font-headline">{product.name}</CardTitle>
+                <p className="text-2xl font-bold">{product.price}</p>
+                <CardDescription>{product.audience}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                  <li>{product.specs}</li>
+                  <li>{product.description}</li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full" variant={product.featured ? 'default' : 'outline'}>Jetzt Kaufen</Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+        <div className="text-center mt-12">
+            <p className="text-lg text-muted-foreground">
+                Weitere Modelle finden Sie in unserem <Link href="#" className="text-primary hover:underline">Online Shop</Link>.
+            </p>
+        </div>
       </div>
     </section>
   );
