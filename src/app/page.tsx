@@ -3,9 +3,20 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Cpu, Package, Fingerprint, Laptop, ShoppingCart, Bot } from "lucide-react";
+import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Cpu, Package, Fingerprint, Laptop, ShoppingCart, Bot, Rocket, Smile, LifeBuoy } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Logo } from "@/components/logo";
+
+
+function WindowsLogo(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M3,12.5H11V21H3V12.5M3,3H11V11.5H3V3M12,3H21V11.5H12V3M12,12.5H21V21H12V12.5Z" />
+    </svg>
+  );
+}
+
 
 export default function Home() {
   return (
@@ -19,6 +30,7 @@ export default function Home() {
         <ComparisonSection />
         <CatSupportSection />
         <WarrantySection />
+        <SupportSection />
       </main>
       <Footer />
     </div>
@@ -30,7 +42,7 @@ function HeroSection() {
     <section className="container grid lg:grid-cols-2 gap-12 items-center py-20 md:py-32">
       <div className="flex flex-col gap-6">
         <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold">
-          Warum Windows, wenn's mit Linux auch geht
+          Warum Windows, wenn's auch mit Linux geht
         </h1>
         <p className="text-xl text-muted-foreground">
           Entdecken Sie unsere refurbished Notebooks mit vorinstalliertem AnduinOS Linux (basierend auf Ubuntu). Die sichere, schnelle und benutzerfreundliche Alternative zu Windows – perfekt für Einsteiger und Profis.
@@ -129,9 +141,9 @@ function BenefitsSection() {
 
 function NewBenefitsSection() {
     const newBenefits = [
-        { title: "Stabil & Sicher", description: "Notebooks von Lumi-Systems basieren auf einem robusten Linux-Kern und bieten Ihnen eine sichere Umgebung ohne Viren und ständige Updates." },
-        { title: "Benutzerfreundlich", description: "Eine intuitive Oberfläche, die speziell für Windows-Umsteiger entwickelt wurde. Fühlen Sie sich sofort zu Hause." },
-        { title: "Sofort Einsatzbereit", description: "Alle wichtigen Anwendungen für Büro, Kreativität und das Web sind bereits vorinstalliert. Einfach einschalten und loslegen." },
+        { icon: ShieldCheck, title: "Stabil & Sicher", description: "Notebooks von Lumi-Systems basieren auf einem robusten Linux-Kern und bieten Ihnen eine sichere Umgebung ohne Viren und ständige Updates." },
+        { icon: Smile, title: "Benutzerfreundlich", description: "Eine intuitive Oberfläche, die speziell für Windows-Umsteiger entwickelt wurde. Fühlen Sie sich sofort zu Hause." },
+        { icon: Rocket, title: "Sofort Einsatzbereit", description: "Alle wichtigen Anwendungen für Büro, Kreativität und das Web sind bereits vorinstalliert. Einfach einschalten und loslegen." },
     ]
   return (
     <section className="py-20 md:py-28">
@@ -144,8 +156,11 @@ function NewBenefitsSection() {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
             {newBenefits.map(benefit => (
-                 <Card key={benefit.title}>
-                    <CardHeader>
+                 <Card key={benefit.title} className="text-center">
+                    <CardHeader className="items-center">
+                        <div className="bg-primary/10 p-4 rounded-full mb-4">
+                           <benefit.icon className="w-10 h-10 text-primary" />
+                        </div>
                         <CardTitle>{benefit.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -231,12 +246,20 @@ function ProductsSection() {
 }
 
 function ComparisonSection() {
-  const comparisonData = [
-    { feature: "Kosten", standard: "Hohe Lizenzgebühren", lumi: "Keine Lizenzkosten" },
-    { feature: "Datenschutz", standard: "Nutzer-Tracking", lumi: "Keine Datensammlung" },
-    { feature: "Updates", standard: "Zwangsupdates", lumi: "Volle Kontrolle" },
-    { feature: "Sicherheit", standard: "Hauptziel für Viren", lumi: "Robust & sicher" },
-    { feature: "Nachhaltigkeit", standard: "Fördert Elektroschrott", lumi: "Reduziert Elektroschrott" },
+  const windowsFeatures = [
+    { text: "Hohe Lizenzgebühren" },
+    { text: "Häufige Zwangsupdates" },
+    { text: "Datensammlung & Tracking" },
+    { text: "Sicherheitslücken" },
+    { text: "Ressourcenhungrig" },
+  ];
+
+  const lumiFeatures = [
+    { text: "Völlig kostenlos & Open Source" },
+    { text: "Updates nur wenn Sie wollen" },
+    { text: "Absolute Privatsphäre" },
+    { text: "Höchste Sicherheitsstandards" },
+    { text: "Optimiert für Performance" },
   ];
 
   return (
@@ -248,35 +271,37 @@ function ComparisonSection() {
             Sehen Sie, warum Lumi-Systems die bessere Wahl für modernes, sicheres und nachhaltiges Computing ist.
           </p>
         </div>
-        <Card className="max-w-4xl mx-auto">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-1/3">Merkmal</TableHead>
-                <TableHead className="text-center">Standard-Notebook</TableHead>
-                <TableHead className="text-center">Lumi-System</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {comparisonData.map((item) => (
-                <TableRow key={item.feature}>
-                  <TableCell className="font-medium">{item.feature}</TableCell>
-                  <TableCell className="text-center">
-                    <div className="flex items-center justify-center gap-2 text-destructive">
-                      <XCircle className="w-5 h-5" />
-                      <span>{item.standard}</span>
-                    </div>
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <div className="flex items-center justify-center gap-2 text-green-600">
-                      <CheckCircle2 className="w-5 h-5" />
-                      <span className="font-semibold">{item.lumi}</span>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+        <Card className="max-w-4xl mx-auto overflow-hidden">
+          <div className="grid md:grid-cols-2">
+            <div className="p-6 md:p-8 bg-red-50 dark:bg-red-900/20">
+              <div className="flex items-center gap-3 mb-6">
+                <WindowsLogo className="w-8 h-8 text-blue-600" />
+                <h3 className="text-2xl font-bold">Windows</h3>
+              </div>
+              <ul className="space-y-4">
+                {windowsFeatures.map((item) => (
+                  <li key={item.text} className="flex items-center gap-3">
+                    <XCircle className="w-6 h-6 text-red-500 flex-shrink-0" />
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="p-6 md:p-8 bg-green-50 dark:bg-green-900/20">
+               <div className="flex items-center gap-3 mb-6">
+                 <Logo className="w-8 h-8 text-primary" />
+                 <h3 className="text-2xl font-bold">LumiOS</h3>
+               </div>
+               <ul className="space-y-4">
+                {lumiFeatures.map((item) => (
+                  <li key={item.text} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0" />
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </Card>
       </div>
     </section>
@@ -326,3 +351,51 @@ function WarrantySection() {
     </section>
   );
 }
+
+function SupportSection() {
+  return (
+    <section className="py-20 md:py-28">
+      <div className="container">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Wir sind für Sie da</h2>
+          <p className="text-lg text-muted-foreground mt-4">
+            Vom ersten Klick bis zur Expertenanwendung – wir lassen Sie nicht allein. Verlassen Sie sich auf unsere umfassende Garantie und optionale Support-Services, die Ihnen den Rücken freihalten.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <Award className="w-10 h-10 text-primary" />
+                <CardTitle>1 Jahr Hardware-Garantie</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Arbeiten Sie sorgenfrei. Jedes unserer aufbereiteten Notebooks ist durch eine einjährige Garantie auf die komplette Hardware abgesichert. So können Sie sich voll und ganz auf Ihre Projekte konzentrieren.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+               <div className="flex items-center gap-4">
+                <LifeBuoy className="w-10 h-10 text-primary" />
+                <CardTitle>Premium Support-Service</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Benötigen Sie persönliche Hilfe beim Umstieg oder bei der Einrichtung? Unser Support-Service begleitet Sie und beantwortet all Ihre Fragen zu Ihrem neuen Notebook und dem gewählten Betriebssystem – egal ob AnduinOS oder Ubuntu.
+              </p>
+            </CardContent>
+            <CardFooter>
+                <Button variant="outline">Mehr erfahren</Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+    
