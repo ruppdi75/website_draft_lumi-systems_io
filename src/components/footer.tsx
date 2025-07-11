@@ -16,19 +16,23 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-sm tracking-wider uppercase">Produkte</h4>
-            <nav className="flex flex-col gap-2 text-sm">
-              <Link href="#produkte" className="text-muted-foreground hover:text-primary transition-colors">LumiBook Air</Link>
-              <Link href="#produkte" className="text-muted-foreground hover:text-primary transition-colors">LumiBook Pro</Link>
-              <Link href="#produkte" className="text-muted-foreground hover:text-primary transition-colors">LumiBook Flex</Link>
-            </nav>
+            <h4 className="font-semibold mb-4 text-sm tracking-wider uppercase">Kontakt</h4>
+            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+              <p>Lumi-Systems.io</p>
+              <p>Arnikaweg 47a/3</p>
+              <p>1220 Wien</p>
+              <p>Österreich</p>
+              <p className="mt-2">E: office@lumi-systems.io</p>
+              <p>T: +43 664 16 17 219</p>
+            </div>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-sm tracking-wider uppercase">Unternehmen</h4>
             <nav className="flex flex-col gap-2 text-sm">
               <Link href="#vorteile" className="text-muted-foreground hover:text-primary transition-colors">Vorteile</Link>
               <Link href="#versprechen" className="text-muted-foreground hover:text-primary transition-colors">Unser Versprechen</Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Kontakt</Link>
+              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Über uns</Link>
+              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Support</Link>
             </nav>
           </div>
            <div>

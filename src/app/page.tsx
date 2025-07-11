@@ -254,6 +254,11 @@ function ComparisonSection() {
     { text: "Datensammlung & Tracking" },
     { text: "Sicherheitslücken" },
     { text: "Ressourcenhungrig" },
+    { text: "Starke Hardware-Anforderungen" },
+    { text: "Wenig Anpassungsoptionen" },
+    { text: "Anfällig für Viren und Malware" },
+    { text: "Proprietäre Software" },
+    { text: "Langsamer mit der Zeit" },
   ];
 
   const lumiFeatures = [
@@ -262,6 +267,11 @@ function ComparisonSection() {
     { text: "Absolute Privatsphäre" },
     { text: "Höchste Sicherheitsstandards" },
     { text: "Optimiert für Performance" },
+    { text: "Läuft auch auf älterer Hardware" },
+    { text: "Vollständig anpassbar" },
+    { text: "Kaum anfällig für Viren" },
+    { text: "Transparenz durch Open Source" },
+    { text: "Bleibt dauerhaft schnell" },
   ];
 
   return (
@@ -292,7 +302,7 @@ function ComparisonSection() {
             <div className="p-6 md:p-8 bg-green-50 dark:bg-green-900/20">
                <div className="flex items-center gap-3 mb-6">
                  <Logo className="w-8 h-8 text-primary" />
-                 <h3 className="text-2xl font-bold">LumiOS</h3>
+                 <h3 className="text-2xl font-bold">AnduinOS oder Ubuntu</h3>
                </div>
                <ul className="space-y-4">
                 {lumiFeatures.map((item) => (
