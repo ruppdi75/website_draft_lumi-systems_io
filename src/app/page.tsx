@@ -78,7 +78,7 @@ const benefits = [
   {
     icon: Users,
     title: "Intuitiv & Vertraut",
-    description: "Fühlen Sie sich sofort zuhause. Dank der vertrauten Oberfläche von LumiOS gelingt der Umstieg von Windows mühelos und ohne lange Einarbeitung. Ihr neues Notebook ist sofort produktiv.",
+    description: "Fühlen Sie sich sofort zuhause. Dank der vertrauten Oberfläche von AnduinOS oder Ubuntu gelingt der Umstieg von Windows mühelos und ohne lange Einarbeitung. Ihr neues Notebook ist sofort produktiv.",
   },
   {
     icon: Laptop,
