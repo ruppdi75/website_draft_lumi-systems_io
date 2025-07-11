@@ -376,11 +376,9 @@ function SupportSection() {
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <Card>
-            <CardHeader>
-              <div className="flex items-center gap-4">
-                <Award className="w-10 h-10 text-primary" />
-                <CardTitle>1 Jahr Hardware-Garantie</CardTitle>
-              </div>
+            <CardHeader className="flex flex-row items-center gap-4">
+              <Award className="w-10 h-10 text-primary" />
+              <CardTitle>1 Jahr Hardware-Garantie</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
@@ -389,11 +387,9 @@ function SupportSection() {
             </CardContent>
           </Card>
           <Card>
-            <CardHeader>
-               <div className="flex items-center gap-4">
-                <LifeBuoy className="w-10 h-10 text-primary" />
-                <CardTitle>Premium Support-Service</CardTitle>
-              </div>
+            <CardHeader className="flex flex-row items-center gap-4">
+              <LifeBuoy className="w-10 h-10 text-primary" />
+              <CardTitle>Premium Support-Service</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
