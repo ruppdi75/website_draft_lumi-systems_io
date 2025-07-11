@@ -3,10 +3,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Cpu, Package, Fingerprint, Laptop, ShoppingCart, Bot, Rocket, Smile, LifeBuoy } from "lucide-react";
+import { CheckCircle2, XCircle, Award, Heart, Recycle, ShieldCheck, Users, Code2, Cpu, Package, Fingerprint, Laptop, ShoppingCart, Bot, Rocket, Smile, LifeBuoy, Handshake } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Logo } from "@/components/logo";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 
 function WindowsLogo(props: React.SVGProps<SVGSVGElement>) {
@@ -31,6 +32,7 @@ export default function Home() {
         <CatSupportSection />
         <WarrantySection />
         <SupportSection />
+        <PartnersSection />
       </main>
       <Footer />
     </div>
@@ -398,4 +400,61 @@ function SupportSection() {
   );
 }
 
+const partners = [
+  { name: "AnduinOS", logo: "https://placehold.co/200x100.png" },
+  { name: "Gnome", logo: "https://placehold.co/200x100.png" },
+  { name: "Perfomedia", logo: "https://placehold.co/200x100.png" },
+  { name: "Osambit OÜ", logo: "https://placehold.co/200x100.png" },
+  { name: "Tierquartier Wien", logo: "https://placehold.co/200x100.png" },
+  { name: "Tierrettung Wien", logo: "https://placehold.co/200x100.png" },
+  { name: "Auffangstation", logo: "https://placehold.co/200x100.png" },
+  { name: "Katzen Cafe Tallinn", logo: "https://placehold.co/200x100.png" },
+  { name: "Katzen Cafe Prag", logo: "https://placehold.co/200x100.png" },
+  { name: "Katzen Cafe Bratislava", logo: "https://placehold.co/200x100.png" },
+];
+
+function PartnersSection() {
+  return (
+    <section className="py-20 md:py-28 bg-white dark:bg-card">
+      <div className="container">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Unsere Kooperations-Partner</h2>
+          <p className="text-lg text-muted-foreground mt-4">
+            Zu unseren Kooperations-partnern zählen unter anderem:
+          </p>
+        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {partners.map((partner, index) => (
+              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/5">
+                <div className="p-1">
+                  <Card className="bg-transparent border-0 shadow-none">
+                    <CardContent className="flex aspect-video items-center justify-center p-6">
+                      <Image 
+                        src={partner.logo} 
+                        alt={`Logo von ${partner.name}`} 
+                        width={150} 
+                        height={75} 
+                        className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                        data-ai-hint="company logo"
+                        />
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+    </section>
+  );
+}
     
