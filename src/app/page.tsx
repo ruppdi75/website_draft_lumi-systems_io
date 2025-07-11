@@ -118,7 +118,7 @@ function BenefitsSection() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">Warum ein Notebook von Lumi-Systems wählen?</h2>
           <p className="text-lg text-muted-foreground mt-4">
-            Unsere Notebooks sind mit AnduinOS oder Ubuntu vorinstalliert und enthalten alle notwendigen Programme wie E-Mail und Bildbearbeitung. Erleben Sie einen nahtlosen Übergang von Windows mit vertrauten Anwendungen, intuitiven Workflows und einem starken Fokus auf Ihre Privatsphäre.
+            Unsere Notebooks sind mit AnduinOS oder Ubuntu vorinstalliert und enthalten alle notwendigen Programme wie E-Mail, Bildbearbeitung, OnlyOffice (kompatibel mit Word, Excel, PowerPoint), VLC für Videos, pCloud für sichere Datenspeicherung und viele weitere nützliche Werkzeuge. Erleben Sie einen nahtlosen Übergang von Windows mit vertrauten Anwendungen, intuitiven Workflows und einem starken Fokus auf Ihre Privatsphäre.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
